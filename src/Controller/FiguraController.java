@@ -6,8 +6,6 @@ import Model.Triangulo;
 import Interface.ICalcularFig;
 import View.ViewFiguras;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import javax.swing.JOptionPane;
 
 public class FiguraController {
@@ -68,6 +66,7 @@ public class FiguraController {
             } else {
                 vista.ocultarAltura();
             }
-    }
+        }
     
+    }
 }
