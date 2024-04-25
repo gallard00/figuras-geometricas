@@ -1,12 +1,19 @@
 
 package View;
 
+import Controller.FiguraController;
+
 
 public class ViewFiguras extends javax.swing.JFrame {
 
+    private FiguraController controladora;
     
     public ViewFiguras() {
         initComponents();
+    }
+
+    public ViewFiguras(FiguraController controladora) {
+        this.controladora = controladora;
     }
 
     
