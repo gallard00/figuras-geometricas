@@ -15,6 +15,14 @@ public class Triangulo implements ICalcularFig {
         this.altura = altura;
     }
 
+    public Triangulo(double lado1, double lado2, double base) {
+        this.lado1 = lado1;
+        this.lado2 = lado2;
+        this.base = base;
+    }
+
+    
+
     public double getLado1() {
         return lado1;
     }
