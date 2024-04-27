@@ -9,6 +9,7 @@ public class Circulo implements ICalcularFig {
         this.radio = radio;
     }
 
+//<editor-fold defaultstate="collapsed" desc="Getters and Setters">
     public double getRadio() {
         return radio;
     }
@@ -16,9 +17,11 @@ public class Circulo implements ICalcularFig {
     public void setRadio(double radio) {
         this.radio = radio;
     }
-    
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="Metodos ICalcularFigura">
     @Override
-    public double calcSup() {
+    public double calcArea() {
         return (double) (Math.PI * radio * radio);
     }
 
@@ -26,4 +29,5 @@ public class Circulo implements ICalcularFig {
     public double calcPer() {
         return (double) (2 * Math.PI * radio);
     }
+//</editor-fold>
 }
