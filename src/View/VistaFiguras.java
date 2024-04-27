@@ -94,10 +94,14 @@ public class VistaFiguras extends javax.swing.JFrame {
                         ventanaActual.dispose();
                     }
                     
-                    ViewCuadrado vistaCuadrado = null;
-                    vistaCuadrado = new ViewCuadrado();
+                    ViewTriangulo vistaTriangulo = null;
+        try {
+            vistaTriangulo = new ViewTriangulo();
+        } catch (SQLException ex) {
+            Logger.getLogger(VistaFiguras.class.getName()).log(Level.SEVERE, null, ex);
+        }
                     
-                    vistaCuadrado.addWindowListener(new WindowAdapter() {
+                    vistaTriangulo.addWindowListener(new WindowAdapter() {
                         @Override
                         public void windowClosed(WindowEvent e) {
                             
@@ -105,9 +109,9 @@ public class VistaFiguras extends javax.swing.JFrame {
                         }
                     });
                     
-                    vistaCuadrado.setVisible(true);
+                    vistaTriangulo.setVisible(true);
                     
-                    ventanaActual = vistaCuadrado;
+                    ventanaActual = vistaTriangulo;
                     
                     this.setVisible(false);
     }//GEN-LAST:event_btnTrianguloActionPerformed
@@ -145,7 +149,11 @@ public class VistaFiguras extends javax.swing.JFrame {
                     }
                     
                     ViewCuadrado vistaCuadrado = null;
-                    vistaCuadrado = new ViewCuadrado();
+        try {
+            vistaCuadrado = new ViewCuadrado();
+        } catch (SQLException ex) {
+            Logger.getLogger(VistaFiguras.class.getName()).log(Level.SEVERE, null, ex);
+        }
                     
                     vistaCuadrado.addWindowListener(new WindowAdapter() {
                         @Override
