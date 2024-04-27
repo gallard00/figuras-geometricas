@@ -9,6 +9,7 @@ public class Cuadrado implements ICalcularFig {
         this.lado = lado;
     }
 
+//<editor-fold defaultstate="collapsed" desc="Getters and Setters">
     public double getLado() {
         return lado;
     }
@@ -16,9 +17,11 @@ public class Cuadrado implements ICalcularFig {
     public void setLado(double lado) {
         this.lado = lado;
     }
-    
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="Metodos ICalcularFigura">
     @Override
-    public double calcSup(){
+    public double calcArea(){
         return lado * lado; 
     }
     
@@ -26,4 +29,5 @@ public class Cuadrado implements ICalcularFig {
     public double calcPer() {
        return 4 * lado;
     }
+//</editor-fold>
 }
