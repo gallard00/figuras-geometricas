@@ -3,70 +3,65 @@ package Controller;
 import Model.Circulo;
 import Model.Cuadrado;
 import Model.Triangulo;
-import Interface.ICalcularFig;
-import View.ViewFiguras;
 import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 public class FiguraController {
+    private FiguraController() {
+    }
     private static FiguraController Instance;
-    private ViewFiguras vista;
-    private ICalcularFig figura;
-    
-    public static FiguraController GetInstance(ViewFiguras vista) throws SQLException {
+
+    public static FiguraController GetInstance() throws SQLException {
         if (Instance == null) {
-            Instance = new FiguraController(vista);
+            Instance = new FiguraController();
         }
         return Instance;
     }
 
-    public FiguraController(ViewFiguras vista) {
-        this.vista = vista;
-        this.vista.setFiguraController(this);
+    public double calcularSuperficieCuadrado(double lado) {
+        Cuadrado cuadrado = new Cuadrado(lado);
+        double superficie = cuadrado.calcSup();
+
+        return superficie;
+    }
+
+    public double calcularPerimetroCuadrado(double lado) {
+        Cuadrado cuadrado = new Cuadrado(lado);
+        double perimetro = cuadrado.calcPer();
+        return perimetro;
+    }
+
+    public double calcularSuperficieTriangulo(double lado1, double lado2, double base) {
+        Triangulo triangulo = new Triangulo(lado1, lado2, base);
+        double  superficie = triangulo.calcSup();
+        return superficie;
+    }
+
+    public double calcularPerimetroTriangulo(double lado1, double lado2, double base) {
+       Triangulo triangulo = new Triangulo(lado1, lado2, base);
+        double  perimetro = triangulo.calcPer();
+        return perimetro;
     }
     
-    public void calcularFigura (String tipoFigura, double... parametros){
-        switch (tipoFigura) {
-            case "Cuadrado":
-                if (parametros.length == 1) {
-                    figura = new Cuadrado (parametros[0]);
-                } else {
-                   JOptionPane.showMessageDialog(null, "Número de parámetros incorrecto para un cuadrado.");
-                    return; 
-                }
-                break;
-                case "Triangulo":
-                if (parametros.length == 3) {
-                    figura = new Triangulo(parametros[0], parametros[1], parametros[2]);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Número de parámetros incorrecto para un triángulo.");
-                    return;
-                }
-                break;
-            case "Circulo":
-                if (parametros.length == 1) {
-                    figura = new Circulo(parametros[0]);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Número de parámetros incorrecto para un círculo.");
-                    return;
-                }
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "Figura no reconocida.");
-                return;
-        }
+    public double calcularAlturaTriangulo(double lado1, double lado2, double base){
+        Triangulo triangulo = new Triangulo(lado1, lado2, base);
+        double  altura = triangulo.calcularAltura();
+        return altura;
+    }
+
+    public double calcularSuperficieCirculo(double radio) {
+        Circulo circulo = new Circulo(radio);
+        double superficie = circulo.calcSup();
+        return superficie;
         
-        if (figura != null) {
-            double perimetro = figura.calcPer();
-            double superficie = figura.calcSup();
-            vista.mostrarResultado(perimetro, superficie);
-            if (figura instanceof Triangulo) {
-                double altura = ((Triangulo) figura).calcularAltura();
-                vista.mostrarAltura(altura);
-            } else {
-                vista.ocultarAltura();
-            }
-        }
+    }
+
+    public double calcularPerimetroCirculo(double radio) {
+        Circulo circulo = new Circulo(radio);
+        double perimetro = circulo.calcPer();
+        return perimetro;
+    }
     
+    public String[] obtenerFigurasDisponibles() {
+        return new String[]{"Cuadrado", "Triangulo", "Circulo"};
     }
 }
