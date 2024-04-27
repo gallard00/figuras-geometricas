@@ -1,8 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+
 package FigurasGeometricas;
+
+import View.VistaFiguras;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -12,9 +14,19 @@ public class FigurasGeometricas {
 
     /**
      * @param args the command line arguments
+     * @throws java.sql.SQLException
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args)throws SQLException {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    new VistaFiguras().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(FigurasGeometricas.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
     
 }
