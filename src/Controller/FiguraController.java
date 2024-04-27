@@ -16,12 +16,12 @@ public class FiguraController {
         }
         return Instance;
     }
-
-    public double calcularSuperficieCuadrado(double lado) {
+//<editor-fold defaultstate="collapsed" desc=" Metodos de Cuadrado ">
+    public double calcularAreaCuadrado(double lado) {
         Cuadrado cuadrado = new Cuadrado(lado);
-        double superficie = cuadrado.calcSup();
+        double area = cuadrado.calcArea();
 
-        return superficie;
+        return area;
     }
 
     public double calcularPerimetroCuadrado(double lado) {
@@ -29,11 +29,13 @@ public class FiguraController {
         double perimetro = cuadrado.calcPer();
         return perimetro;
     }
-
-    public double calcularSuperficieTriangulo(double lado1, double lado2, double base) {
-        Triangulo triangulo = new Triangulo(lado1, lado2, base);
-        double  superficie = triangulo.calcSup();
-        return superficie;
+//</editor-fold>
+    
+//<editor-fold defaultstate="collapsed" desc=" Metodos de Triangulo ">
+    public double calcularAreaTriangulo(double lado1, double lado2, double lado3) {
+        Triangulo triangulo = new Triangulo(lado1, lado2, lado3);
+        double  area = triangulo.calcArea();
+        return area;
     }
 
     public double calcularPerimetroTriangulo(double lado1, double lado2, double base) {
@@ -47,11 +49,13 @@ public class FiguraController {
         double  altura = triangulo.calcularAltura();
         return altura;
     }
-
-    public double calcularSuperficieCirculo(double radio) {
+//</editor-fold>
+    
+//<editor-fold defaultstate="collapsed" desc=" Metodos de Circulo ">
+    public double calcularAreaCirculo(double radio) {
         Circulo circulo = new Circulo(radio);
-        double superficie = circulo.calcSup();
-        return superficie;
+        double area = circulo.calcArea();
+        return area;
         
     }
 
@@ -60,8 +64,5 @@ public class FiguraController {
         double perimetro = circulo.calcPer();
         return perimetro;
     }
-    
-    public String[] obtenerFigurasDisponibles() {
-        return new String[]{"Cuadrado", "Triangulo", "Circulo"};
-    }
+//</editor-fold>
 }
