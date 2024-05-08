@@ -2,6 +2,7 @@ package Controller;
 
 import Model.Circulo;
 import Model.Cuadrado;
+import Model.Poligono;
 import Model.Triangulo;
 import java.sql.SQLException;
 
@@ -62,6 +63,20 @@ public class FiguraController {
     public double calcularPerimetroCirculo(double radio) {
         Circulo circulo = new Circulo(radio);
         double perimetro = circulo.calcPer();
+        return perimetro;
+    }
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc=" Metodos de Poligono ">
+    public double calcularAreaPoligono (int cantLado, double lado ) {
+       Poligono poligono = new Poligono( cantLado, lado);
+       double area = poligono.calcArea();
+       return area;
+    }
+    
+    public double calcularPerimetroPoligono(int cantLado, double lado) {
+        Poligono poligono = new Poligono (cantLado, lado);
+        double perimetro = poligono.calcPer();
         return perimetro;
     }
 //</editor-fold>
