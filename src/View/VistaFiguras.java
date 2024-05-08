@@ -32,6 +32,7 @@ public class VistaFiguras extends javax.swing.JFrame {
         btnTriangulo = new javax.swing.JButton();
         btnCirculo = new javax.swing.JButton();
         btnCuadrado = new javax.swing.JButton();
+        btnPoligono = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -46,7 +47,7 @@ public class VistaFiguras extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(62, 62, 62))
         );
@@ -90,18 +91,30 @@ public class VistaFiguras extends javax.swing.JFrame {
             }
         });
 
+        btnPoligono.setBackground(new java.awt.Color(255, 102, 102));
+        btnPoligono.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnPoligono.setForeground(new java.awt.Color(255, 255, 255));
+        btnPoligono.setText("Poligono");
+        btnPoligono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPoligonoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addGap(20, 20, 20)
                 .addComponent(btnTriangulo)
-                .addGap(70, 70, 70)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCirculo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btnCuadrado)
-                .addGap(37, 37, 37))
+                .addGap(27, 27, 27)
+                .addComponent(btnPoligono)
+                .addGap(26, 26, 26))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +123,8 @@ public class VistaFiguras extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnTriangulo)
                     .addComponent(btnCirculo)
-                    .addComponent(btnCuadrado))
+                    .addComponent(btnCuadrado)
+                    .addComponent(btnPoligono))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
@@ -217,6 +231,33 @@ public class VistaFiguras extends javax.swing.JFrame {
                     this.setVisible(false);
     }//GEN-LAST:event_btnCuadradoActionPerformed
 
+    private void btnPoligonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPoligonoActionPerformed
+        if (ventanaActual != null) {
+                        ventanaActual.dispose();
+                    }
+                    
+                    ViewPoligono vistaPoligono = null;
+        try {
+            vistaPoligono = new ViewPoligono();
+        } catch (SQLException ex) {
+            Logger.getLogger(VistaFiguras.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                    
+                    vistaPoligono.addWindowListener(new WindowAdapter() {
+                        @Override
+                        public void windowClosed(WindowEvent e) {
+                            
+                            setVisible(true);
+                        }
+                    });
+                    
+                    vistaPoligono.setVisible(true);
+                    
+                    ventanaActual = vistaPoligono;
+                    
+                    this.setVisible(false);
+    }//GEN-LAST:event_btnPoligonoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -259,6 +300,7 @@ public class VistaFiguras extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCirculo;
     private javax.swing.JButton btnCuadrado;
+    private javax.swing.JButton btnPoligono;
     private javax.swing.JButton btnTriangulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
